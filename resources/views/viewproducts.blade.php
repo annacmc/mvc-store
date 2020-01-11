@@ -7,7 +7,7 @@
       <!-- Custom fonts-->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <!-- Custom stylesheets-->
-    <link href="style.css" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css" >
     <!-- Add Logo as Favicon -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -32,16 +32,15 @@
   </header>
   <!-- end blog header content -->
   <!--begin navigation-->
-
 <div class="nav-scroller py-1 mb-2">
   <nav class="nav d-flex">
-    <a class="p-2 text-muted" href="index.php?i=home">Home</a>
-        <a class="p-2 text-muted" href="index.php?i=cat">Full Catalogue</a>
-    <a class="p-2 text-muted" href="index.php?i=cat&c=asia">Asia</a>
-    <a class="p-2 text-muted" href="index.php?i=cat&c=europe">Europe</a>
-    <a class="p-2 text-muted" href="index.php?i=cat&c=americas">Americas</a>
-    <a class="p-2 text-muted" href="index.php?i=checkout">Checkout</a>
 
+          <a class="p-2 text-muted" href="index.php?i=home">Home</a>
+
+      @foreach ($allProducts as $product)
+      <!--output each category as a menu item-->
+        <a class="p-2 text-muted" href="index.php?i=cat">{{ $product->category }}</a>
+      @endforeach
   </nav>
 </div>
   <!--end navigation-->

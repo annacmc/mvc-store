@@ -38,6 +38,7 @@ class ProductController extends Controller
     {
         \App\Product::create([
   'name' => $request->get('name'),
+   'category' => $request->get('category'),
   'description' => $request->get('description'),
   'price' => $request->get('price'),
   'count' => $request->get('count'),

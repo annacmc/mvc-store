@@ -1,6 +1,7 @@
 <!doctype html>
     <html lang="{{ app()->getLocale() }}">
     <head>
+
       <title>Create Product | Product Store</title>
       <!-- styling etc. -->
     </head>
@@ -8,6 +9,9 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <form method="POST" action="{{ config('app.url')}}/products">
+                    <!-- CSRF Token -->
+                    @csrf
+
                     <h1> Enter Details to create a product</h1>
                     <div class="form-input">
                         <label>Name</label> <input type="text" name="name">

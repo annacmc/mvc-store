@@ -66,8 +66,6 @@ class ProductController extends Controller
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             // Upload image
             $this->uploadOne($image, $folder, 'public', $name);
-            echo $filePath;
-
 
         }
 

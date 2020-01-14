@@ -16,10 +16,11 @@ class CrateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
         $table->increments('id');
         $table->string('name');
+        $table->string('cover_image')->nullable();
         $table->string('category');
         $table->text('description');
         $table->integer('count');
-        $table->integer('price');
+        $table->float('price');
         $table->softDeletes();
         $table->timestamps();
     });

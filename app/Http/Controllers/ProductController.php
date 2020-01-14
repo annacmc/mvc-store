@@ -3,9 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+
+    /** create upload trait */
+
+
+        public function uploadOne(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null)
+        {
+            $name = !is_null($filename) ? $filename : Str::random(25);
+
+            $file = $uploadedFile->storeAs($folder, $name.'.'.$uploadedFile->getClientOriginalExtension(), $disk);
+
+            return $file;
+        }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -36,9 +53,29 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+        // Check if a profile image has been uploaded
+        if ($request->has('cover_image')) {
+            // Get image file
+            $image = $request->file('cover_image');
+            // Make a image name based on user name and current timestamp
+            $name = 'cover-img'.'_'.time();
+            // Define folder path
+            $folder = '/uploads/images/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+            echo $filePath;
+
+
+        }
+
         \App\Product::create([
+
   'name' => $request->get('name'),
-   'category' => $request->get('category'),
+  'cover_image' => $filePath,
+  'category' => $request->get('category'),
   'description' => $request->get('description'),
   'price' => $request->get('price'),
   'count' => $request->get('count'),

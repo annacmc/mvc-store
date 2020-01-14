@@ -8,7 +8,7 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <form method="POST" action="{{ config('app.url')}}/products">
+                <form method="POST" action="{{ config('app.url')}}/products" enctype="multipart/form-data">
                     <!-- CSRF Token -->
                     @csrf
 
@@ -31,6 +31,15 @@
 
                     <div class="form-input">
                         <label>Price</label> <input type="number" name="price">
+                    </div>
+
+                    <div class="form-group row">
+
+                        <label for="profile_image" class="col-md-4 col-form-label text-md-right">Profile Image</label>
+
+                        <input id="cover_image" type="file" class="form-control" name="cover_image">
+
+                    </div>
                     </div>
 
                     <button type="submit">Submit</button>

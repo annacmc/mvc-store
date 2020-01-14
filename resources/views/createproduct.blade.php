@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="form-input">
-                        <label>Price</label> <input type="number" name="price">
+                        <label>Price</label> <input type="number" step="any" name="price">
                     </div>
 
                     <div class="form-group row">

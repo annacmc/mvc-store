@@ -30,7 +30,12 @@
         </div>
           <!-- begin login menu area -->
         <div class="col-4 d-flex justify-content-end align-items-center">
-      <a class="btn btn-outline-secondary btn-sm" href="{{ config('app.url')}}/products/create">Create Product</a>
+            if (Auth::check()){
+
+    // The user is logged in...
+     <a class="btn btn-outline-secondary btn-sm" href="{{ config('app.url')}}/products/create">Create Product</a>
+}
+
       <a class="btn btn-outline-secondary btn-sm" href="{{ config('app.url')}}/products/create">Log In</a>
       <a class="btn btn-outline-secondary btn-sm" href="{{ config('app.url')}}/products/create">Register</a>
       <!-- begin dropdown login button -->

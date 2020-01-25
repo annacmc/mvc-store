@@ -23,6 +23,6 @@ Route::get('/createproduct', function () {
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ProductController@index')->name('home');
 
 Route::get('/', 'ProductController@index')->name('home');

@@ -59,7 +59,7 @@
             Manage Products
            </a>
            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-             <a class="dropdown-item" href="#">Add Product</a>
+             <a class="dropdown-item" href="{!! url('/createproduct'); !!}">Add Product</a>
               <a class="dropdown-item" href="#">Remove Products</a>
                <a class="dropdown-item" href="#">Edit Products</a>
            </div>
@@ -91,12 +91,10 @@
              <a class="dropdown-item" href="#">Something else here</a>
            </div>
          </li>
-         <!-- shopping cart for logged in user -->
-         @auth
+         <!-- shopping cart info -->
             <li class="nav-item ">
             <a class="nav-link" href="#"><strong>$0.00</strong>&emsp;<span class=""> 0 items </span>&emsp;<i class="fas fa-shopping-basket"></i></a>
           </li>
-          @endauth
           <!-- end shopping cart -->
           </ul>
         </div>
@@ -113,7 +111,7 @@
 
 <div class="container-fluid">
     <footer class="blog-footer">
-      <p>Site by Anna McPhee.</p>
+      <p>Site by Anna McPhee | All content & images by Anna McPhee unless otherwise specified.</p>
       <p>
         <a href="#">Back to top</a>
       </p>

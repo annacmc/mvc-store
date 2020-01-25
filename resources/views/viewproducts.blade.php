@@ -10,7 +10,7 @@
 @auth
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm">
-    <img src="" class="card-img-top" style="object-fit:cover" height="250px" alt="Add a new product">
+    <img src="https://via.placeholder.com/600x600.png?text=Add+New+Product" class="card-img-top-add-product" style="object-fit:cover" height="250px" alt="Add a new product">
     <div class="card-body">
       <h5 class="card-title">Admin Tool : Add a new product</h5>
       <p class="card-text">You're logged in as an Admin, you can add a new product here</p>

@@ -11,18 +11,15 @@
 |
 */
 
+
+Route::view('/', 'home');
 Auth::routes();
-
-Route::get('/', function() {
-    return view('ProductController@index');
-});
-
+Route::get('/home', 'HomeController@index')
+    ->name('home');
+Route::get('/admin', 'AdminController@admin')
+    ->middleware('is_admin')
+    ->name('admin');
 
 Route::get('/createproduct', function () {
     return view('createproduct');
 });
-
-
-Route::get('/home', 'ProductController@index')->name('home');
-
-Route::get('/', 'ProductController@index')->name('home');

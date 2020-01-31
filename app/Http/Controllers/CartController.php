@@ -27,6 +27,6 @@ class CartController extends Controller
     public function clear(){
         Cart::clear();
 
-        return back()->with('success',"The shopping cart has successfully been added to the shopping cart!");;
+        return back()->with('success',"The shopping cart has successfully beed added to the shopping cart!");;
     }
 }

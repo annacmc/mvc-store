@@ -1,125 +1,92 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!doctype html>
+<html lang="en">
+
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Anna's Travel Guides</title>
-    <!-- Styles etc. -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- Custom fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-  <!-- Load fontawesome Icon Kit -->
-  <script src="https://kit.fontawesome.com/99c6a2ffe2.js" crossorigin="anonymous"></script>
-  <!-- Custom stylesheets-->
-  <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css" >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="{{asset('images/favicon.png')}}" sizes="16x16" type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .top-10 {
+            margin-top: 10px;
+        }
+        .top-15 {
+            margin-top: 15px;
+        }
+    </style>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>{{$title}}</title>
 </head>
-    <body>
-    <!-- begin jumbotron to make header full width -->
-    <div class="jumbotron-fluid">
-          <nav class="navbar navbar-light bg-light">
-          <a class="blog-small-logo" href="#">A</a>
-          <a class="blog-header-logo text-dark" href="#">Anna's Travel Guides</a>
-          <!-- begin login menu area -->
-
-            <ul class="nav">
-    <!-- Authentication Links -->
-    @guest
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-        </li>
-        @if (Route::has('register'))
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-            </li>
-        @endif
-    @else
-        <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-             Hi, {{ Auth::user()->name }}! <span class="caret"></span>
-            </a>
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-
-        </li>
-
-            <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Manage Products
-           </a>
-           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-             <a class="dropdown-item" href="{!! url('/createproduct'); !!}">Add Product</a>
-              <a class="dropdown-item" href="#">Remove Products</a>
-               <a class="dropdown-item" href="#">Edit Products</a>
-           </div>
-        </li>
-
-
-    @endguest
-</ul>
-</nav>
-</div>
-    <!-- end to make header full width -->
-    <!-- end blog header content -->
-
-      <!--begin navigation-->
-      <nav class="navbar navbar-expand-lg">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Browse by Destination
-           </a>
-           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-             <a class="dropdown-item" href="#">Action</a>
-             <a class="dropdown-item" href="#">Another action</a>
-             <div class="dropdown-divider"></div>
-             <a class="dropdown-item" href="#">Something else here</a>
-           </div>
-         </li>
-         <!-- shopping cart info -->
-            <li class="nav-item ">
-            <a class="nav-link" href="#"><strong>$0.00</strong>&emsp;<span class=""> 0 items </span>&emsp;<i class="fas fa-shopping-basket"></i></a>
-          </li>
-          <!-- end shopping cart -->
-          </ul>
-        </div>
-      </nav>
-      <!--end navigation-->
-
-</div>
-
+<body>
 
     <div class="container">
-         @yield("content")
-   </div>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="{{route('home')}}">Larashop</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-
-<div class="container-fluid">
-    <footer class="blog-footer">
-      <p>Site by Anna McPhee | All content & images by Anna McPhee unless otherwise specified.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
-</div>
-<!-- Bootstrap Javascript Includes -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
-  </html>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Deals
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach($items['deals'] as $deal)
+                                <a class="dropdown-item" href="#">{{$deal->title . ' - ' . number_format($deal->percent,0) . '% off'}}</a>
+                                @endforeach
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach($items['categories'] as $category)
+                                <a class="dropdown-item" href="{{route('categories',['url' => $category->url])}}">{{$category->title}}</a>
+                                @endforeach
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Brands
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach($items['brands'] as $brand)
+                                <a class="dropdown-item" href="{{route('brands',['url' => $brand->url])}}">{{$brand->title}}</a>
+                                @endforeach
+                            </div>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search for products" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <a class="btn btn-success btn-sm ml-3" href="{{route('cart.checkout')}}">
+                        <i class="fa fa-shopping-cart"></i> Cart Total Qty
+                        <span class="badge badge-light">{{Cart::getTotalQuantity()}}</span>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        @include('messages')
+        @yield('content')
+        <footer>
+            <p>Larashop Copyright 2019 | All Rights Reserved</p>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

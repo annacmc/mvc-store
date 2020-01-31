@@ -23,3 +23,18 @@ Route::get('/admin', 'AdminController@admin')
 Route::get('/createproduct', function () {
     return view('createproduct');
 });
+
+Route::get('/shopping-cart-add', function () {
+    Cart::add(1, 'Macbook Pro', 2900, 1, array());
+
+    Cart::update(1,[
+        'quantity' => $quantity
+    ]);
+
+    foreach (Cart::getContent() as $product){
+        echo "Id: $product->id</br>";
+        echo "Name: $product->name</br>";
+        echo "Price $product->price</br>";
+        echo "Quantity $product->quantity</br>";
+    }
+});

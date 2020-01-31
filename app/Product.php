@@ -7,17 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
 
-            protected $fillable = [
-               'name',
-               'cover_image',
-               'category',
-               'count',
-               'price',
-               'description',
-            ];
+    protected $fillable = [
+        'category_id',
+        'brand_id',
+        'name',
+        'url',
+        'description',
+        'price',
+        'content',
+        'image',
+    ];
 
             public function getImageAttribute()
             {
                return $this->cover_image;
             }
+
+
+    public function getImage(){
+        return "images/$this->image";
+    }
 }

@@ -10,11 +10,11 @@
                 <div class="card">
                     <img class="card-img-top" src="{{asset($product->getImage())}}" alt="Card image cap">
                     <div class="card-body">
-                        <h4 class="card-title"><a href="product.html" title="View Product">{{$product->name}}</a></h4>
+                        <h4 class="card-title"><a href="#" title="View Product">{{$product->name}}</a></h4>
                         <p class="card-text">{{$product->description}}</p>
                         <div class="row">
                             <div class="col">
-                                <p class="btn btn-danger btn-block">{{$product->price}} $</p>
+                                <p class="btn btn-danger btn-block">${{$product->price}}</p>
                             </div>
                             <div class="col">
                                 <form method="POST" action="{{route('cart.add')}}" class="form-inline my-2 my-lg-0" >

@@ -29,6 +29,7 @@
     <div class="container">
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="blog-small-logo" href="#">A</a>
                 <a class="navbar-brand" href="{{route('home')}}">{{ config('app.name') }}</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -69,9 +70,7 @@
                                 @endforeach
                             </div>
                         </li>
-						<li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
-                        </li>
+
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search for products" aria-label="Search">
@@ -87,7 +86,7 @@
         @include('messages')
         @yield('content')
         <footer>
-            <p>Larashop Copyright 2019 | All Rights Reserved</p>
+            <p> {{ config('app.name') }} Copyright {{ date('Y') }} | All rights reserved</p>
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

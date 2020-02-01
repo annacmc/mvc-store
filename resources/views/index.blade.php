@@ -8,7 +8,7 @@
         @foreach($products as $product)
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
-                    <img class="card-img-top" src="{{asset($product->getImage())}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{asset($product->getImageAttribute())}}" style="object-fit:cover" height="250px" alt="{{ $product->name }}">
                     <div class="card-body">
                         <h4 class="card-title"><a href="#" title="View Product">{{$product->name}}</a></h4>
                         <p class="card-text">{{$product->description}}</p>

@@ -72,12 +72,12 @@ class ProductController extends Controller
         \App\Product::create([
 
   'name' => $request->get('name'),
-  'image' => $filePath,
+  'url' => $filePath,
   'description' => $request->get('description'),
   'price' => $request->get('price'),
   'category_id' => $request->get('category_id'),
    'brand_id' => $request->get('brand_id'),
-      'url' => $request->get('url'),
+      'image' => $request->get('url'),
 
 ]);
 

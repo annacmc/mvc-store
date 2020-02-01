@@ -20,11 +20,9 @@ class Product extends Model
 
             public function getImageAttribute()
             {
-               return $this->cover_image;
+                return $this->url;
             }
 
 
-    public function getImage(){
-        return "images/$this->image";
-    }
+
 }

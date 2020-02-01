@@ -55,9 +55,9 @@ class ProductController extends Controller
     {
 
         // Check if a profile image has been uploaded
-        if ($request->has('cover_image')) {
+        if ($request->has('image')) {
             // Get image file
-            $image = $request->file('cover_image');
+            $image = $request->file('image');
             // Make a image name based on user name and current timestamp
             $name = 'cover-img'.'_'.time();
             // Define folder path
@@ -72,14 +72,16 @@ class ProductController extends Controller
         \App\Product::create([
 
   'name' => $request->get('name'),
-  'cover_image' => $filePath,
-  'category' => $request->get('category'),
+  'image' => $filePath,
   'description' => $request->get('description'),
   'price' => $request->get('price'),
-  'count' => $request->get('count'),
+  'category_id' => $request->get('category_id'),
+   'brand_id' => $request->get('brand_id'),
+      'url' => $request->get('url'),
+
 ]);
 
-return redirect('/products');
+return redirect('/home');
     }
 
     /**

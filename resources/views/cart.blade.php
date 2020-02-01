@@ -16,8 +16,8 @@
             </li>
             @endforeach
             <li class="list-group-item d-flex justify-content-between">
-                <span>Total (USD)</span>
-                <strong>{{Cart::getSubTotal()}}</strong>
+                <span>Total (NZD)</span>
+                <strong>${{Cart::getSubTotal()}}</strong>
             </li>
         </ul>
         <form action="{{route('cart.clear')}}" method="POST" class="card p-2">
@@ -28,14 +28,7 @@
                 </div>
             </div>
         </form>
-        <form class="card p-2">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Promo code">
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-secondary">Redeem</button>
-                </div>
-            </div>
-        </form>
+
     </div>
     <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Billing address</h4>

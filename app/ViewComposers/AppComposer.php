@@ -4,7 +4,6 @@ namespace App\ViewComposers;
 
 use App\Brand;
 use App\Category;
-use App\Deal;
 use Illuminate\View\View;
 
 class AppComposer {
@@ -15,7 +14,6 @@ class AppComposer {
         $data = [
             'brands' => Brand::all(),
             'categories' => Category::all(),
-            'deals' => Deal::all(),
         ];
 
         $this->items[] = $data;

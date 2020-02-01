@@ -41,16 +41,7 @@
                             <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Deals
-                        </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @foreach($items['deals'] as $deal)
-                                <a class="dropdown-item" href="#">{{$deal->title . ' - ' . number_format($deal->percent,0) . '% off'}}</a>
-                                @endforeach
-                            </div>
-                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Categories

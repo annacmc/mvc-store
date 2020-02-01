@@ -1,1 +1,7 @@
-You are an Admin
+@if (session('status'))
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+    </div>
+@endif
+
+Are you an admin

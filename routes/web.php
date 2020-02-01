@@ -20,6 +20,7 @@ Route::get('/admin', 'AdminController@admin')
     ->middleware('is_admin')
     ->name('admin');
 
+
 /* Routes for shopping cart & product display */
 
 Route::get('/home', 'HomeController@index')->name('home');

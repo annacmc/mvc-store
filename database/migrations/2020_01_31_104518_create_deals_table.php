@@ -13,19 +13,20 @@ class CreateDealsTable extends Migration
      */
     public function up()
     {
-        Schema::create('deals', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-        });
+        Schema::dropIfExists('deals');
     }
+
 
     /**
      * Reverse the migrations.
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('deals');
-    }
+         public function down()
+     {
+         Schema::create('deals', function (Blueprint $table) {
+             $table->bigIncrements('id');
+             $table->timestamps();
+         });
+     }
 }

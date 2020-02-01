@@ -16,19 +16,28 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Category</label> <input type="text" name="category">
+                        <label>Category ID</label> <input type="text" name="category_id" value="3">
                     </div>
+
+                    <div class="form-group">
+                        <label>Brand ID</label> <input type="text" name="brand_id" value="3">
+                    </div>
+
+                    <div class="form-group">
+                        <label>URL</label> <input type="text" name="url" value="testingurl.com">
+                    </div>
+
 
                     <div class="form-group">
                         <label>Description</label> <textarea name="description" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label>Price</label> <input type="number" step="any" name="price">
+                        <label>Price</label> <input type="number" step="any" name="price" value="5.00">
                     </div>
                     <div class="form-group">
                         <label>Product Image</label>
-                        <input id="cover_image" type="file" class="form-control" name="cover_image">
+                        <input id="image" type="file" class="form-control" name="image">
                     </div>
 
                     <button type="submit">Submit</button>

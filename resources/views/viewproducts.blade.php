@@ -30,7 +30,7 @@
                    <!--output each product as a bootstrap card-->
                            <div class="col-md-4">
                              <div class="card mb-4 shadow-sm">
-                               <img src="{{ $product->cover_image }}" class="card-img-top" style="object-fit:cover" height="250px" alt="{{ $product->name }}">
+                               <img src="{{ $product->image }}" class="card-img-top" style="object-fit:cover" height="250px" alt="{{ $product->name }}">
                                <div class="card-body">
                                  <h5 class="card-title">{{ $product->name }} | {{ $product->category }}</h5>
                                  <p class="card-text">{{ $product->description }}</p>

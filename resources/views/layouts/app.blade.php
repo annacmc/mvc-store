@@ -22,7 +22,7 @@
         }
     </style>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <title>{{$title}}</title>
+    <title>{{$title ?? ''}}</title>
 </head>
 <body>
 
@@ -40,6 +40,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Deals
@@ -77,6 +78,9 @@
                       <ul class="nav">
               <!-- Authentication Links -->
               @guest
+              <li class="nav-item">
+                  <a class="nav-link" href="{{route('create')}}">Create</a>
+              </li>
                   <li class="nav-item">
                       <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>

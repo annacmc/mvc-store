@@ -10,7 +10,7 @@
                 <div class="card">
                     <img class="card-img-top" src="{{asset($product->getImageAttribute())}}" style="object-fit:cover" height="250px" alt="{{ $product->name }}">
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#" title="View Product">{{$product->name}}</a></h4>
+                        <h4 class="card-title">{{$product->name}}</h4>
                         <p class="card-text">{{$product->description}}</p>
                         <div class="row">
                             <div class="col">

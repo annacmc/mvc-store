@@ -98,7 +98,7 @@
 
                   </li>
                   @if (Auth::user()->isAdmin())
-        <span class="badge badge-pill badge-info">Admin</span>
+        <p><span class="badge badge-pill badge-info">Admin</span></p>
 
                       <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

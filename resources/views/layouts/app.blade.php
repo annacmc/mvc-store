@@ -64,7 +64,16 @@
                         </li>
 
                     </ul>
-                    <!-- begin login menu area -->
+<!-- begin shopping cart button & count display -->
+
+                    <a class="btn btn-outline-secondary btn-sm ml-3" href="{{route('cart.checkout')}}">
+                        <i class="fa fa-shopping-cart"></i> Cart Total Qty
+                        <span class="badge badge-light">{{Cart::getTotalQuantity()}}</span>
+                    </a>
+
+<!-- end shopping cart button & count display -->
+
+<!-- begin login / admin toolbar -->
 
                       <ul class="nav">
               <!-- Authentication Links -->
@@ -83,7 +92,10 @@
 
                   <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                       Hi, {{ Auth::user()->name }}! <span class="caret"></span>
+                       Hi, {{ Auth::user()->name }}!                  <!-- show admin badge if user is admin -->
+                                         @if (Auth::user()->isAdmin())
+                               <span class="badge badge-pill badge-info">Admin</span>
+                               <!-- End admin badge if user is admin --><span class="caret"></span>
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -97,8 +109,7 @@
                               @csrf
 
                   </li>
-                  @if (Auth::user()->isAdmin())
-        <p><span class="badge badge-pill badge-info">Admin</span></p>
+
 
                       <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -116,11 +127,6 @@
               @endguest
           </ul>
 <!-- end login / admin toolbar -->
-
-                    <a class="btn btn-success btn-sm ml-3" href="{{route('cart.checkout')}}">
-                        <i class="fa fa-shopping-cart"></i> Cart Total Qty
-                        <span class="badge badge-light">{{Cart::getTotalQuantity()}}</span>
-                    </a>
                 </div>
             </nav>
         </header>

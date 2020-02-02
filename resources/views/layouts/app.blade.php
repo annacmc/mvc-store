@@ -69,9 +69,6 @@
                       <ul class="nav">
               <!-- Authentication Links -->
               @guest
-              <li class="nav-item">
-                  <a class="nav-link" href="{{route('create')}}">Create</a>
-              </li>
                   <li class="nav-item">
                       <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>
@@ -81,6 +78,8 @@
                       </li>
                   @endif
               @else
+
+
 
                   <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -98,17 +97,20 @@
                               @csrf
 
                   </li>
+                  @if (Auth::user()->isAdmin())
+        <span class="badge badge-pill badge-info">Admin</span>
 
                       <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Manage Products
                      </a>
                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                       <a class="dropdown-item" href="{!! url('/createproduct'); !!}">Add Product</a>
-                        <a class="dropdown-item" href="#">Remove Products</a>
-                         <a class="dropdown-item" href="#">Edit Products</a>
+                         <a class="nav-link" href="{{route('create')}}">Create Product</a>
+
                      </div>
                   </li>
+
+                      @endif
 
 <!-- end if guest login links -->
               @endguest

@@ -15,18 +15,23 @@
                         <label>Name</label> <input type="text" name="name">
                     </div>
 
+                    <h1> VAR DUMP 1 HERE: </h2>
+                                                <?php
+                                                var_dump($products);
+                                                 ?>
+                     <h1> VAR DUMP 2 HERE: </h2>
+                                                                             <?php
+
+                                                                              ?>
                     <div class="form-group">
-                        <label>Category ID</label> <input type="text" name="category_id" value="3">
+                        <label>Category</label> <input type="text" name="category_id" value="3">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Brand ID</label> <input type="text" name="brand_id" value="3">
+                        <label>Series</label> <input type="text" name="brand_id" value="3">
                     </div>
-
-                    <div class="form-group">
-                        <label>URL</label> <input type="text" name="url" value="testingurl.com">
-                    </div>
-
 
                     <div class="form-group">
                         <label>Description</label> <textarea name="description" rows="3"></textarea>

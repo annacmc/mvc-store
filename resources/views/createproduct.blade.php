@@ -11,29 +11,31 @@
                 <form method="POST" action="{{ config('app.url')}}/products" enctype="multipart/form-data">
                     <!-- CSRF Token -->
                     @csrf
-                    <div class="form-group">
-                        <label>Name</label> <input type="text" name="name">
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Name</label>
+                        <input type="text" name="name">
                     </div>
-
-                    <h1> VAR DUMP 1 HERE: </h2>
-            <?php var_dump($items); ?>
-                    <div class="form-group">
-                        <label>Category</label> <input type="text" name="category_id" value="3">
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        </div>
+                    <div class="form-group col-md-6">
+                        <label>Price</label>
+                        <input type="number" step="any" name="price" >
                     </div>
-
-                    <div class="form-group">
-                        <label>Series</label> <input type="text" name="brand_id" value="3">
-                    </div>
+                </div>
 
                     <div class="form-group">
-                        <label>Description</label> <textarea name="description" rows="3"></textarea>
+                    <input type="hidden"  name="category_id" value="1">
+
                     </div>
 
                     <div class="form-group">
-                        <label>Price</label> <input type="number" step="any" name="price" value="5.00">
+                        <input type="hidden" name="brand_id" value="1">
                     </div>
+
+                    <div class="form-group">
+                        <p><label>Description</label></p> <textarea name="description" rows="3"></textarea>
+                    </div>
+
+
                     <div class="form-group">
                         <label>Product Image</label>
                         <input id="image" type="file" class="form-control" name="image">

@@ -48,14 +48,8 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        $params = [
-                'category' => \App\Category::all(),
-                'title' => 'testing',
-                'myproducts' => \App\Product::all(),
-                'mycategories' => \App\Category::all(),
-                    ];
 
-        return view('createproduct')->with('products', $products);;
+        return view('createproduct');
     }
 
     /**

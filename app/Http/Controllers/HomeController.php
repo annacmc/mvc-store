@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $params = [
             'title' => 'Annas Travel Guides',
-            'sub_title' => 'All Guides Listing',
+            'sub_title' => 'All Travel Guides',
             'products' => Product::all(),
         ];
 
@@ -26,7 +26,7 @@ class HomeController extends Controller
 
         $params = [
             'title' => $brand->title,
-            'sub_title' => "Products by $brand->title",
+            'sub_title' => "Products in $brand->title series",
             'products' => $brand->products,
         ];
 

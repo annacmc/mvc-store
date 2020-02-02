@@ -26,9 +26,10 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container-fluid">
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container">
                 <a class="blog-small-logo" href="#">A</a>
                 <a class="navbar-brand" href="{{route('home')}}">{{ config('app.name') }}</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,36 +43,9 @@
                         </li>
 
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Categories
-                        </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @foreach($items['categories'] as $category)
-                                <a class="dropdown-item" href="{{route('categories',['url' => $category->url])}}">{{$category->title}}</a>
-                                @endforeach
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Brands
-                        </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @foreach($items['brands'] as $brand)
-                                <a class="dropdown-item" href="{{route('brands',['url' => $brand->url])}}">{{$brand->title}}</a>
-                                @endforeach
-                            </div>
-                        </li>
 
                     </ul>
-<!-- begin shopping cart button & count display -->
 
-                    <a class="btn btn-outline-secondary btn-sm ml-3" href="{{route('cart.checkout')}}">
-                        <i class="fa fa-shopping-cart"></i> Cart Total Qty
-                        <span class="badge badge-light">{{Cart::getTotalQuantity()}}</span>
-                    </a>
-
-<!-- end shopping cart button & count display -->
 
 <!-- begin login / admin toolbar -->
 
@@ -129,30 +103,66 @@
           </ul>
 <!-- end login / admin toolbar -->
                 </div>
+            </div>
             </nav>
+<!-- end top nav bar -->
+<!-- start secondary nav bar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container">
+ <strong> <a class="nav-link" href="#">Filter by:</a></strong>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
 
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+      </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @foreach($items['categories'] as $category)
+              <a class="dropdown-item" href="{{route('categories',['url' => $category->url])}}">{{$category->title}}</a>
+              @endforeach
+          </div>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Series
+      </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @foreach($items['brands'] as $brand)
+              <a class="dropdown-item" href="{{route('brands',['url' => $brand->url])}}">{{$brand->title}}</a>
+              @endforeach
+          </div>
+      </li>
 
-            <!-- begin search form -->
-            <form action="/search" method="POST" role="search">
-                {{ csrf_field() }}
-                <div class="input-group">
-                    <input type="text" class="form-control" name="q"
-                    placeholder="Search Products"> <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
-            </form>
-            <!-- end search form -->
+      <li class="nav-item">
+          <!-- begin shopping cart button & count display -->
+
+                              <a class="btn btn btn-outline-info ml-3" href="{{route('cart.checkout')}}">
+                                  <i class="fa fa-shopping-cart"></i> Cart Total Qty
+                                  <span class="badge badge-light">{{Cart::getTotalQuantity()}}</span>
+                              </a>
+
+          <!-- end shopping cart button & count display -->
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+<!-- end secondary nav bar -->
 
 
         </header>
+            <div class="container container-body">
         @include('messages')
         @yield('content')
-        <footer>
 
-            <p> {{ config('app.name') }} Copyright {{ date('Y') }} | All rights reserved</p>
+    </div>
+
+    <div class="container-fluid">
+        <footer class="blog-footer">
+                <p> {{ config('app.name') }} Copyright {{ date('Y') }} | All rights reserved | All content & images by Anna McPhee unless otherwise specified.</p>
+            <a href="#">Back to top</a>
+          </p>
         </footer>
     </div>
     <!-- Bootstrap Javascript Includes -->

@@ -125,14 +125,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
 }
 
-/* Hero Overlay Styling */
+.container-body {
 
-.hero {
-
-}
-.hero.overlay {
+padding-bottom:60px;
 
 }
-.hero h1 {
 
+.viewing-alert {
+    margin:15px 0;
 }

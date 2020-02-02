@@ -2,9 +2,13 @@
 
 @section('content')
 
-<div class="row top-15">
-    <div class="col">
-        <h5>{{$sub_title}}</h5>
+
+        <div class="viewing-alert alert alert-info alert-dismissible fade show" role="alert"><strong>Currently Viewing:</strong> {{$sub_title}}
+
+        </div>
+        <div class="container-fluid">
+    <div class="row top-15">
+        <div class="col">
         <div class="row">
         @foreach($products as $product)
             <div class="col-12 col-md-6 col-lg-4">
@@ -15,7 +19,7 @@
                         <p class="card-text">{{$product->description}}</p>
                         <div class="row">
                             <div class="col">
-                                <p class="btn btn-danger btn-block">${{$product->price}}</p>
+                                <p class="btn btn-outline-info btn-block">${{$product->price}}</p>
                             </div>
                             <div class="col">
                                 <form method="POST" action="{{route('cart.add')}}" class="form-inline my-2 my-lg-0" >

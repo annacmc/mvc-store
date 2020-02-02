@@ -7,6 +7,10 @@ use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
+use App\Brand;
+use App\Product;
+use App\Category;
+
 class ProductController extends Controller
 {
 
@@ -30,19 +34,28 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = \App\Product::all();
 
-           return view('viewproducts', ['allProducts' => $products]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      */
     public function create()
     {
-         return view('createproduct');
+        $products = Product::all();
+
+        $params = [
+                'category' => \App\Category::all(),
+                'title' => 'testing',
+                'myproducts' => \App\Product::all(),
+                'mycategories' => \App\Category::all(),
+                    ];
+
+        return view('createproduct')->with('products', $products);;
     }
 
     /**
@@ -77,7 +90,6 @@ class ProductController extends Controller
   'price' => $request->get('price'),
   'category_id' => $request->get('category_id'),
    'brand_id' => $request->get('brand_id'),
-      'image' => $request->get('url'),
 
 ]);
 

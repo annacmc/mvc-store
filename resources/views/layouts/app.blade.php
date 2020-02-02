@@ -133,7 +133,7 @@
 
 
             <!-- begin search form -->
-            <form action="/search" method="GET" role="search">
+            <form action="/search" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="form-control" name="q"

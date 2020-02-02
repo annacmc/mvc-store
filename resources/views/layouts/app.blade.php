@@ -133,7 +133,7 @@
 
 
             <!-- begin search form -->
-            <form action="/search" method="POST" role="search">
+            <form action="/search" method="GET" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="form-control" name="q"
@@ -146,13 +146,12 @@
             </form>
             <!-- end search form -->
 
+
         </header>
         @include('messages')
         @yield('content')
         <footer>
 
-            <?php
-            var_dump($category); ?>
             <p> {{ config('app.name') }} Copyright {{ date('Y') }} | All rights reserved</p>
         </footer>
     </div>

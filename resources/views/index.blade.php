@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="row top-15">
     <div class="col">
         <h5>{{$sub_title}}</h5>

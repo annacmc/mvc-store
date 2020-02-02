@@ -16,13 +16,7 @@
                     </div>
 
                     <h1> VAR DUMP 1 HERE: </h2>
-                                                <?php
-                                                var_dump($products);
-                                                 ?>
-                     <h1> VAR DUMP 2 HERE: </h2>
-                                                                             <?php
-
-                                                                              ?>
+            <?php var_dump($items); ?>
                     <div class="form-group">
                         <label>Category</label> <input type="text" name="category_id" value="3">
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">

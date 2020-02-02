@@ -1,4 +1,5 @@
 <?php
+use App\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,12 @@ Route::get('/categories/{url}', 'HomeController@categories')->name('categories')
 
 Route::get('/create', 'ProductController@create')->name('create');
 Route::post('/products', 'ProductController@store')->name('store');
+
+/* Routing for Product Search */
+
+Route::get('/search',function(){
+    $q =  Request::only('q');
+    $product = "test";
+        return view('home')->withDetails($product)->withQuery ( $q );
+
+});

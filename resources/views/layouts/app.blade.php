@@ -95,6 +95,7 @@
                        Hi, {{ Auth::user()->name }}!                  <!-- show admin badge if user is admin -->
                                          @if (Auth::user()->isAdmin())
                                <span class="badge badge-pill badge-info">Admin</span>
+                               @endif
                                <!-- End admin badge if user is admin --><span class="caret"></span>
                       </a>
 
@@ -121,7 +122,7 @@
                      </div>
                   </li>
 
-                      @endif
+
 
 <!-- end if guest login links -->
               @endguest
@@ -133,6 +134,9 @@
         @include('messages')
         @yield('content')
         <footer>
+
+            <?php
+            var_dump($category); ?>
             <p> {{ config('app.name') }} Copyright {{ date('Y') }} | All rights reserved</p>
         </footer>
     </div>

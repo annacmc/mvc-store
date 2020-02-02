@@ -86,7 +86,9 @@
                   </li>
 
 
-                      <li class="nav-item dropdown">
+                  @if (Auth::user()->isAdmin())
+
+                    <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Manage Products
                      </a>
@@ -95,6 +97,7 @@
 
                      </div>
                   </li>
+                  @endif
 
 
 
@@ -157,6 +160,7 @@
         @yield('content')
 
     </div>
+</div>
 
     <div class="container-fluid">
         <footer class="blog-footer">

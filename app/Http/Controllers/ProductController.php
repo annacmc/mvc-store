@@ -34,7 +34,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-
+        $products = \App\Product::all();
     }
 
     /**
@@ -47,8 +47,6 @@ class ProductController extends Controller
     public function create()
     {
         $products = Product::all();
-
-
         return view('createproduct');
     }
 

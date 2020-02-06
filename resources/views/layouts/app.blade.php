@@ -52,6 +52,15 @@
                       <ul class="nav">
               <!-- Authentication Links -->
               @guest
+
+
+
+                                  <li class="nav-item">
+
+                                       <a class="nav-link" href="{{route('create')}}">Create Product</a>
+
+                                </li>
+
                   <li class="nav-item">
                       <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                   </li>
@@ -86,6 +95,7 @@
                   </li>
 
 
+                  @if (Auth::user()->isAdmin())
 
                     <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,7 +106,7 @@
 
                      </div>
                   </li>
-
+                  @endif
 
 
 

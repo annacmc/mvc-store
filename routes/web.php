@@ -1,6 +1,4 @@
 <?php
-use App\Product;
-use Symfony\Component\Console\Input\Input;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +12,6 @@ use Symfony\Component\Console\Input\Input;
 */
 
 
-Auth::routes();
-
-/* Routes for user & admin auth */
-
-Route::get('/admin', 'AdminController@admin')
-    ->middleware('is_admin')
-    ->name('admin');
 
 
 /* Routes for shopping cart & product display */
@@ -37,3 +28,11 @@ Route::get('/categories/{url}', 'HomeController@categories')->name('categories')
 
 Route::get('/create', 'ProductController@create')->name('create');
 Route::post('/products', 'ProductController@store')->name('store');
+
+Auth::routes();
+
+/* Routes for user & admin auth */
+
+Route::get('/admin', 'AdminController@admin')
+    ->middleware('is_admin')
+    ->name('admin');
